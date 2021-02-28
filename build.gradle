@@ -32,9 +32,8 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
-task stage {
-  dependsOn build
-}
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
 
 test {
 	useJUnitPlatform()
