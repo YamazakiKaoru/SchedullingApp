@@ -19,6 +19,9 @@ bin/
 
 ### IntelliJ IDEA ###
 .idea
+/build/
+/.gradle/
+spring-boot-sample.iml
 *.iws
 *.iml
 *.ipr
