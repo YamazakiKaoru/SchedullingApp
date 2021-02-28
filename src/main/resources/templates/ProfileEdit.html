@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
+<body>
+
+
+
+	<header class="header">
+		<div class="header-icon">
+			<h1>Turuha</h1>
+		</div>
+	</header>
+
+	<div class="content">
+
+		<div class="menu">
+
+			<div class="menu-home">
+				<div class="icon">
+
+					<div>
+						<a href="/ProfileEdit">
+							<button type="button">プロフィール編集</button>
+						</a>
+					</div>
+				</div>
+
+				<ul class="sidenav">
+					<span th:text="${ownUser.name}">username</span>
+					<li><a href="#news">News</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="Account">
+		<div class="Account-header"><h1>アカウント情報</h1><hr></div>
+		<div class="Account-number">社員番号</div>
+		<div class="Account-name">氏名</div>
+		<div class="Account-job">役職</div>
+		<div class="Account-profile">プロフィール画像
+		<form th:action="@{/ProfilePicture}" method="post" enctype="multipart/form-data">
+		<input type="file" name="file">
+		<input type="submit" value="送信する">
+		</form>
+		</div>
+		<div class="Account-email">Email</div>
+		<div class="Account-password">パスワード</div>
+
+		</div>
+
+
+
+
+	</div>
+
+	<footer class="fotter"></footer>
+</body>
+
+
+
+</html>

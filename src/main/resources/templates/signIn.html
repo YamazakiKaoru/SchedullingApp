@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+this is signIn.thml
+
+サインインする
+<form th:action="@{/signInDone}" th:object="${userForm}" th:method="post">
+
+<input type="email" th:field="*{mail}">
+<input type="password" th:field="*{password}">
+<input type="text" name="name" th:field="*{name}">
+<input type="submit" value="送信する">
+</form>
+</body>
+</html>

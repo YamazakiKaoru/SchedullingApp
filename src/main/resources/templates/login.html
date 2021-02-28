@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+this is login.html
+
+<form th:action="@{/loginDone}" method="post">
+めーる<input type="email"  name="mail"><br>
+パスわード<input type="password"  name="password"><br>
+<input type="submit" value="送信する">
+</form>
+
+<tr th:each="user : ${userlist}">
+	<td th:text="*{user.name}">  </td>
+	<td th:text="*{user.mail}">  </td>
+	<td th:text="*{user.password}">  </td>
+	<br>
+ </tr>
+
+<a href="/signIn">サインインページに移動</a>
+</body>
+</html>

@@ -1,0 +1,10 @@
+package com.example.Schedulle.common.schedulle;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SchedulleRepository extends JpaRepository<SchedulleEntity, Integer> {
+
+	List<SchedulleEntity> findByMonthValue(Integer monthValue);
+}

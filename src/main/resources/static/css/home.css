@@ -1,0 +1,272 @@
+.wrapper {
+	margin: 15px auto;
+	max-width: 700px;
+}
+
+.container-calendar {
+	background: #ffffff;
+	padding: 15px;
+	width: 100%;
+	margin: 0 auto;
+	overflow: auto;
+	position: absolute;
+	top: 19%;
+	height: 47%;
+	width: 79%;
+	left: 20%;
+}
+
+.button-container-calendar button {
+	cursor: pointer;
+	display: inline-block;
+	zoom: 1;
+	background: #00a2b7;
+	color: #fff;
+	border: 1px solid #0aa2b5;
+	border-radius: 4px;
+	padding: 5px 10px;
+}
+
+.table-calendar {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.table-calendar th, .table-calendar td {
+	padding: 10px;
+	border: 1px solid #e2e2e2;
+	text-align: center;
+	vertical-align: top;
+	height: 50px;
+	width: 120px;
+}
+
+.unHoliday span {
+	position: relative;
+	top: 14px;
+}
+
+.date-picker.selected {
+	font-weight: bold;
+	color: #fff;
+	background: #cc0000;
+}
+
+.date-picker.selected span {
+	border-bottom: 2px solid currentColor;
+}
+/* 日曜 */
+.日 {
+	color: red;
+}
+/* 土曜 */
+.土 {
+	color: blue;
+}
+
+#monthAndYear {
+	text-align: center;
+	margin-top: 0;
+	display: inline;
+}
+
+.button-container-calendar {
+	position: fixed;
+	margin-bottom: 1em;
+	overflow: hidden;
+	clear: both;
+	top: 147px;
+}
+
+#previous {
+	float: center;
+}
+
+#next {
+	float: center;
+}
+
+.footer-container-calendar {
+	margin-top: 1em;
+	border-top: 1px solid #dadada;
+	padding: 10px 0;
+}
+
+.footer-container-calendar select {
+	cursor: pointer;
+	display: inline-block;
+	zoom: 1;
+	background: #ffffff;
+	color: #454545;
+	border: 1px solid #bfc5c5;
+	border-radius: 3px;
+	padding: 5px 1em;
+}
+
+#table_name {
+	width: 50px;
+}
+
+.header {
+	background-color: #000000a6;
+	height: 73px;
+	width: auto;
+}
+
+body {
+	display: flex;
+	flex-flow: column;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	flex: 1;
+}
+
+footer {
+	background-color: #000000a6;
+	height: 131px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+ul.sidenav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #f1f1f1;
+	position: relative;
+	overflow: auto;
+}
+
+ul.sidenav li a {
+	display: block;
+	color: #000000;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+ul.sidenav li a.active {
+	background-color: #da3c41;
+	color: white;
+}
+
+ul.sidenav li a:hover:not(.active) {
+	background-color: #1b2538;
+	color: white;
+}
+
+div.content {
+	margin-left: 25%;
+	padding: 1px 16px;
+	height: auto;
+}
+
+.menu {
+	position: absolute;
+	left: 0;
+}
+
+.header-icon {
+	width: 200px;
+	background-color: #1b253880;
+	height: 100%;
+}
+
+.header-icon h1 {
+	margin: 0;
+	padding: 13px;
+	position: absolute;
+	left: 26px;
+	top: 5px;
+}
+
+img {
+	height: 208px;
+	width: 200px;
+}
+
+HTML CSS JSResult Skip Results Iframe
+EDIT ON
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Avenir', 'Helvetica, Neue', 'Helvetica', 'Arial';
+}
+
+.unHoliday {
+	background-color: #27cdde;
+	color: white;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	border-radius: 25px;
+}
+
+/* モーダルCSS */
+.modalArea {
+	display: none;
+	position: fixed;
+	z-index: 10; /*サイトによってここの数値は調整 */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.modalBg {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(30, 30, 30, 0.9);
+}
+
+.modalWrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+	max-width: 500px;
+	padding: 10px 30px;
+	background-color: #fff;
+}
+
+.closeModal {
+	position: absolute;
+	top: 0.5rem;
+	right: 1rem;
+	cursor: pointer;
+}
+
+/* 以下ボタンスタイル */
+button {
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #282828;
+	border-radius: 2px;
+	cursor: pointer;
+	background-color: #00a2b7;
+	color: white;
+	border-color: #00a2b5;
+}
+
+#openModal {
+	position: absolute;
+	top: 21%;
+	left: 91%;
+	transform: translate(-50%, -50%);
+}
+
+.ShiftRegister {
+	position: absolute;
+	top: 70%;
+	left: 70%;
+	height: 100px;
+	width: 300px;
+}

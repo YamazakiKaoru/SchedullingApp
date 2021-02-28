@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
+<body>
+
+	<header class="header">
+		<div class="header-icon">
+			<h1>Turuha</h1>
+		</div>
+	</header>
+
+
+	<div class="content">
+
+		<div class="menu">
+
+			<div class="menu-home">
+				<div class="icon">
+					<img th:src="${'data:image/png;base64,'+image}" alt="not found">
+
+					<div>
+						<a href="/ProfileEdit">
+							<button type="button">プロフィール編集</button>
+						</a>
+						<form class="form-signout" th:action="@{/logout}" method="post">
+							<button class="logout-btn" type="submit">Logout</button>
+						</form>
+					</div>
+				</div>
+
+				<ul class="sidenav">
+					<span th:text="${ownUser.name}">username</span>
+					<li><a href="#news">News</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container-calendar">
+			<div class="button-container-calendar">
+				<button id="previous" onclick="location.href='/previous'">‹</button>
+				<h4 id="monthAndYear" th:text="${currentDate.Year}"></h4>
+				/
+				<h4 id="monthAndYear" th:text="${currentDate.MonthValue}"></h4>
+				<button id="next" onclick="location.href='/next'">›</button>
+			</div>
+			<table border="1" class="table-calendar" id="calendar">
+				<thead id="thead-month">
+					<tr>
+						<td>従業員</td>
+						<td th:each="detail,stat :${userSchedulle[0].details}">
+							<div id="thread-content" class=""
+								th:classappend="${detail.value.dayOfWeek}">
+								<span th:text="${detail.key}"> </span><br> <span>([[${detail.value.dayOfWeek}]])
+								</span>
+							</div>
+						</td>
+					</tr>
+				</thead>
+				<thead id="calendar-body">
+					<tr th:each="user : ${userSchedulle}">
+						<td th:text="${user.userName}"></td>
+						<td th:each="detail : ${user.details}">
+							<div class="" th:classappend="${detail.value.isHoliday()}">
+								<span th:text="${detail.value.state}"></span>
+							</div>
+						</td>
+					</tr>
+
+				</thead>
+			</table>
+
+		</div>
+
+		<div class="ShiftRegister">
+			<button id="openModal">シフト申請</button>
+
+		</div>
+	</div>
+
+	<footer class="fotter"></footer>
+
+	<!-- 以下モーダル -->
+
+	<section id="modalArea" class="modalArea">
+		<div id="modalBg" class="modalBg"></div>
+		<div class="modalWrapper">
+			<div class="modalContents">
+
+				<form th:action="@{ShiftRegist}" method="post"
+					th:object="${shiftRegistForm}">
+
+					<select th:field="*{userId}">
+						<option th:each="user : ${users}" th:value="${user.id}">[[${user.name}]]</option>
+					</select> <select th:field="*{date}">
+						<option th:each="detail : ${userSchedulle[0].details}"
+							th:value="${detail.key}">[[${detail.key}]]</option>
+					</select> <input type="time" th:field="*{sDate}" step="3600"> <input
+						type="time" th:field="*{eDate}" step="3600"> <input
+						type="hidden" name="monthValue"
+						th:value="${currentDate.MonthValue}"> <input type="submit"
+						value="申請する">
+				</form>
+			</div>
+			<div id="closeModal" class="closeModal">×</div>
+		</div>
+	</section>
+
+
+</body>
+</html>
