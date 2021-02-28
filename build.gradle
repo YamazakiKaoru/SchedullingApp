@@ -32,6 +32,10 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
+task stage {
+  dependsOn build
+}
+
 test {
 	useJUnitPlatform()
 }
