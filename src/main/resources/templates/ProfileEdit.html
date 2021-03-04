@@ -22,7 +22,7 @@
 
 			<div class="menu-home">
 				<div class="icon">
-
+					<img th:src="@{${imageFile}}" alt="not found">
 					<div>
 						<a href="/ProfileEdit">
 							<button type="button">プロフィール編集</button>
@@ -40,18 +40,23 @@
 		</div>
 
 		<div class="Account">
-		<div class="Account-header"><h1>アカウント情報</h1><hr></div>
-		<div class="Account-number">社員番号</div>
-		<div class="Account-name">氏名</div>
-		<div class="Account-job">役職</div>
-		<div class="Account-profile">プロフィール画像
-		<form th:action="@{/ProfilePicture}" method="post" enctype="multipart/form-data">
-		<input type="file" name="file">
-		<input type="submit" value="送信する">
-		</form>
-		</div>
-		<div class="Account-email">Email</div>
-		<div class="Account-password">パスワード</div>
+			<div class="Account-header">
+				<h1>アカウント情報</h1>
+				<hr>
+			</div>
+			<div class="Account-number">社員番号</div>
+			<div class="Account-name">氏名</div>
+			<div class="Account-job">役職</div>
+			<div class="Account-profile">
+				プロフィール画像
+				<form th:action="@{/ProfilePictureEdit}" method="post"
+					enctype="multipart/form-data">
+					<input type="file" name="file" > <input type="submit"
+						value="送信する">
+				</form>
+			</div>
+			<div class="Account-email">Email</div>
+			<div class="Account-password">パスワード</div>
 
 		</div>
 

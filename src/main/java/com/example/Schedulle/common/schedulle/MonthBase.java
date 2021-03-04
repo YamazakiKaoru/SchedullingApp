@@ -7,8 +7,7 @@ import java.util.Map;
 import lombok.Data;
 
 /**
- * @author kaoru
- *
+ * カレンダーの月情報を持つクラス
  */
 @Data
 public class MonthBase {

@@ -14,31 +14,36 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.Schedulle.auth.UserEntity;
 import com.example.Schedulle.auth.UserService;
 
+/**
+ * プロフィール編集を行うコントローラー
+ */
 @Controller
 public class ProfileEditController {
 
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	ProfileEditService profileEditService;
+
 	@GetMapping("/ProfileEdit")
-	public String profileEdit(Model model,@AuthenticationPrincipal UserEntity ownUser) {
+	public String profileEdit(Model model, @AuthenticationPrincipal UserEntity ownUser) {
+
+		//画像処理
+		String imagedata = profileEditService.getProfileData(ownUser);
+
+		model.addAttribute("imageFile", imagedata);
 
 		model.addAttribute("ownUser", ownUser);
 		return "ProfileEdit";
 	}
 
-	@PostMapping("/ProfilePicture")
-	public String changePicture(@RequestParam("file") MultipartFile file,Model model,@AuthenticationPrincipal UserEntity ownUser) throws IOException {
+	@PostMapping("/ProfilePictureEdit")
+	public String changePicture(@RequestParam("file") MultipartFile multipartFile, Model model,
+			@AuthenticationPrincipal UserEntity ownUser) throws IOException {
 
-		if(file == null) {
-			return "redirect:home";
-		}
+		profileEditService.updatePhoto(multipartFile, ownUser);
 
-		byte[] bytes= file.getBytes();
-
-		UserEntity user = userService.findById(ownUser.getId());
-		user.setPictureData(bytes);
-		userService.update(user);
 
 		return "redirect:/home";
 	}

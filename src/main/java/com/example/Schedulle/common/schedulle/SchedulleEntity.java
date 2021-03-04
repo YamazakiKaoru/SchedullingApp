@@ -15,32 +15,35 @@ import com.example.Schedulle.BaseEntity;
 
 import lombok.Data;
 
+/**
+ * シフト申請用のEntity
+ */
 @Entity
 @Table(name="Schedulle",schema="public")
 @Data
 public class SchedulleEntity extends BaseEntity{
 
-	//
+	//月
 	@Column(name="monthValue",nullable=false)
 	private Integer monthValue;
 
-	//
+	//日にち
 	@Column(name="date",nullable=false)
 	private Integer date;
 
-	//
+	//スタート時間
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "HH:mm")
 	@Column(name="sDate",nullable=false)
 	private Date sDate;
 
-	//
+	//終わりの時間
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "HH:mm")
 	@Column(name="eDate",nullable=false)
 	private Date eDate;
 
-	//
+	//シフト申請するユーザーID
 	@Column(name="userId",nullable=false)
 	private Integer userId;
 
@@ -48,20 +51,15 @@ public class SchedulleEntity extends BaseEntity{
 	public SchedulleEntity() {
 	}
 
-	/**
-	 *
-	 * @param monthValue
-	 * @param sDate
-	 * @param eDate
-	 */
+
 	public void setData(Integer monthValue,Date sDate,Date eDate) {
 		this.eDate=eDate;
 		this.sDate=sDate;
 	}
 
 	/**
-	 *
-	 * @return
+	 *　シフト時間をStringで返す
+	 * @return　シフト時間
 	 */
 	public String getDateFormat() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");

@@ -15,6 +15,7 @@ public class SchedulleApplication {
 	UserService userService;
 
 	public static void main(String[] args) {
+
 		  ConfigurableApplicationContext ctx = SpringApplication.run(SchedulleApplication.class, args);
 		 SchedulleApplication app = ctx.getBean(SchedulleApplication.class);
 	        app.execStartup(args);

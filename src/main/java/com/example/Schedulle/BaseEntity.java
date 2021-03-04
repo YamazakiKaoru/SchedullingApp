@@ -5,6 +5,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * Entityのベースとなるクラス
+ */
 @MappedSuperclass
 public class BaseEntity {
 

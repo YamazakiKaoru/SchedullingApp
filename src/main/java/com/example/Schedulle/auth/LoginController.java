@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+/**
+ * ログインを行うコントローラー
+ */
 @Controller
 public class LoginController {
 
@@ -20,8 +23,6 @@ public class LoginController {
 		model.addAttribute("userlist", list);
 		return "login";
 	}
-
-
 
 	@GetMapping("/signIn")
 	public String signIn(Model model) {

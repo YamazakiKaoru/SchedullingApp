@@ -5,8 +5,7 @@ import java.util.List;
 import lombok.Data;
 
 /**
- *
- * @author kaoru
+ * シフトの一日情報を持つクラス
  *
  */
 @Data

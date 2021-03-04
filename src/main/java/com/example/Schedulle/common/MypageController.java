@@ -1,7 +1,6 @@
 package com.example.Schedulle.common;
 
 import java.time.LocalDate;
-import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +12,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.Schedulle.auth.UserEntity;
 import com.example.Schedulle.auth.UserService;
+import com.example.Schedulle.auth.account.ProfileEditService;
 import com.example.Schedulle.common.schedulle.MonthBase;
 import com.example.Schedulle.common.schedulle.MonthBaseService;
 import com.example.Schedulle.common.schedulle.SchedulleEntity;
 import com.example.Schedulle.common.schedulle.SchedulleService;
 
 /**
- *
- * @author kaoru
- *
+ *　ホームページの処理を行うコントローラー
  */
 @Controller
 public class MypageController {
@@ -35,9 +33,13 @@ public class MypageController {
 	@Autowired
 	SchedulleService schedulleService;
 
+	@Autowired
+	ProfileEditService profileEditService;
+
 	@GetMapping("/home")
 	public String home(Model model,@AuthenticationPrincipal UserEntity ownUser){
 
+		//ログイン情報の取得
 		model.addAttribute("ownUser", ownUser);
 
 		//カレンダー情報の取得(リダイレクト用)
@@ -47,7 +49,7 @@ public class MypageController {
 			userSchedulle = MonthBaseService.getMonthMap(LocalDate.now().getMonthValue());
 		}
 
-		//
+		//カレンダー情報の取得
 		List<SchedulleEntity> schedulleList = schedulleService.findAllByMonthValue
 				(userSchedulle.get(0).getCurrentDate().getMonthValue());
 
@@ -62,18 +64,15 @@ public class MypageController {
 		model.addAttribute("shiftRegistForm", new SchedulleEntity());
 
 		//画像処理
-		if(ownUser.getPictureData() == null) {
-			System.out.println("called");
-			model.addAttribute("image", "images/NoImage.png");
-			return "home";
-		}
-		String image = Base64.getEncoder().encodeToString(ownUser.getPictureData());
-		model.addAttribute("image", image);
-
+		String imagedata = profileEditService.getProfileData(ownUser);
+		model.addAttribute("imageFile", imagedata);
 
 		return "home";
 	}
 
+	/**
+	 *　シフトカレンダーの月を一月増やす
+	 */
 	@GetMapping("/previous")
 	public String previous(RedirectAttributes redirectAttributes) {
 		List<MonthBase> userSchedulle = MonthBaseService.getMonthMap(MonthBaseService.getCurrentMonth()-1);
@@ -81,6 +80,9 @@ public class MypageController {
 		return "redirect:/home";
 	}
 
+	/**
+	 *　シフトカレンダーの月を一月減らす
+	 */
 	@GetMapping("/next")
 	public String next(RedirectAttributes redirectAttributes) {
 		List<MonthBase> userSchedulle = MonthBaseService.getMonthMap(MonthBaseService.getCurrentMonth()+1);

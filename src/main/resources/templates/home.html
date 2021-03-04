@@ -27,11 +27,11 @@
 
 			<div class="menu-home">
 				<div class="icon">
-					<img th:src="${'data:image/png;base64,'+image}" alt="not found">
+					<img th:src="@{${imageFile}}" alt="not found">
 
 					<div>
 						<a href="/ProfileEdit">
-							<button type="button">プロフィール編集</button>
+							<button type="button" class="btn btn-primary">プロフィール編集</button>
 						</a>
 						<form class="form-signout" th:action="@{/logout}" method="post">
 							<button class="logout-btn" type="submit">Logout</button>

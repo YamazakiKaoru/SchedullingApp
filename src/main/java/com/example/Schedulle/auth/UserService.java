@@ -21,7 +21,6 @@ public class UserService implements UserDetailsService{
 	@Autowired
 	BCryptPasswordEncoder encoder;
 
-
 	@Transactional
 	public List<UserEntity> findAllUser(){
 		return userRepository.findAll();

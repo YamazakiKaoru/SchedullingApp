@@ -14,9 +14,7 @@ import com.example.Schedulle.auth.UserService;
 import lombok.Data;
 
 /**
- *
- * @author kaoru
- *
+ *　カレンダー用のサービス
  */
 @Service
 @Data

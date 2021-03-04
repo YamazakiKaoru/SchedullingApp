@@ -15,9 +15,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.Schedulle.BaseEntity;
 
+import lombok.Data;
+
+/**
+ * ユーザー情報を持つEntity
+ */
 @Entity
 @Table(name="user",schema="public")
-
+@Data
 public class UserEntity extends BaseEntity implements UserDetails{
 
 	@Column(name="name",nullable=false)
@@ -29,12 +34,13 @@ public class UserEntity extends BaseEntity implements UserDetails{
 	@Column(name="mail",nullable=false)
 	private String mail;
 
+	//アカウント作成時の時間を持つ
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
-
-	@Column(name = "pictureData")
-	private byte[] pictureData;
+	//プロフィール画像のパス
+	@Column(name = "fileName")
+	private String fileName = "NoImages.png";
 
 	public UserEntity() {
 	}
@@ -114,13 +120,6 @@ public class UserEntity extends BaseEntity implements UserDetails{
 		this.createdAt = createdAt;
 	}
 
-	public void setPictureData(byte[] data) {
-		this.pictureData = data;
-	}
-
-	public byte[] getPictureData() {
-		return pictureData;
-	}
 
 
 }
