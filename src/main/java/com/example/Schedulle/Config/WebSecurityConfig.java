@@ -42,6 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
+		http.authorizeRequests().antMatchers("/css/**","/dist/**","/img/**","/plugins/**").permitAll();
+
 		//ログイン設定
 		http.formLogin()//コントローラーを経由しない
 		.loginPage("/")//ログイン画面の指定
@@ -60,10 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		//ログアウト
 		http.logout()//
 		.logoutUrl("/logout")
-		.logoutSuccessUrl("/")
 		.invalidateHttpSession(true)
-		.deleteCookies("JSESSIONID")
-		.permitAll();
+		.deleteCookies("JSESSIONID");
+
 	}
 
 	/**
@@ -71,7 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	 */
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("static/**");
+		web.ignoring().antMatchers("css/**","dist/css/**","js/**");
 	}
 
 

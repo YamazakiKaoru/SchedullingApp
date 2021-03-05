@@ -19,7 +19,8 @@ public class MonthBase {
 	private Map<Integer,DateBase> details = new HashMap<>();
 
 	public MonthBase(int currentMonth) {
-		currentDate = LocalDate.now();
+		LocalDate nowDate = LocalDate.now();
+		currentDate = LocalDate.of(nowDate.getYear(), nowDate.getMonthValue(),1);
 		setdetailsDate(currentMonth);
 	}
 
@@ -30,12 +31,12 @@ public class MonthBase {
 	 */
 	public void setdetailsDate(int plusMonth) {
 		currentDate = currentDate.plusMonths(plusMonth-LocalDate.now().getMonthValue());
-		int firstDay = currentDate.getDayOfWeek().getValue();
+		int firstDayOfWeek = currentDate.getDayOfWeek().getValue();
 		int lastDay = currentDate.lengthOfMonth();
 		details.clear();
 		for(int day=1;day<=lastDay;day++) {
 			DateBase date = new DateBase();
-			date.setDayOfWeek(DateBase.YOUBI.get((day+firstDay+1)%7));
+			date.setDayOfWeek(DateBase.YOUBI.get((day+firstDayOfWeek-1)%7));
 			details.put(day, date);
 		}
 	}

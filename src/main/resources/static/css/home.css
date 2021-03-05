@@ -1,19 +1,17 @@
 .wrapper {
-	margin: 15px auto;
-	max-width: 700px;
+	height: 100%;
+	width: 100%;
+}
+
+.content {
+	background: #ffffff;
+	position: inherit;
 }
 
 .container-calendar {
-	background: #ffffff;
-	padding: 15px;
-	width: 100%;
-	margin: 0 auto;
 	overflow: auto;
-	position: absolute;
-	top: 19%;
-	height: 47%;
-	width: 79%;
-	left: 20%;
+	position: inherit;
+	margin: 3%;
 }
 
 .button-container-calendar button {
@@ -27,6 +25,10 @@
 	padding: 5px 10px;
 }
 
+.table {
+	overflow-x: scroll;
+}
+
 .table-calendar {
 	border-collapse: collapse;
 	width: 100%;
@@ -38,7 +40,7 @@
 	border: 1px solid #e2e2e2;
 	text-align: center;
 	vertical-align: top;
-	height: 50px;
+	height: 70px;;
 	width: 120px;
 }
 
@@ -72,11 +74,7 @@
 }
 
 .button-container-calendar {
-	position: fixed;
 	margin-bottom: 1em;
-	overflow: hidden;
-	clear: both;
-	top: 147px;
 }
 
 #previous {
@@ -87,23 +85,6 @@
 	float: center;
 }
 
-.footer-container-calendar {
-	margin-top: 1em;
-	border-top: 1px solid #dadada;
-	padding: 10px 0;
-}
-
-.footer-container-calendar select {
-	cursor: pointer;
-	display: inline-block;
-	zoom: 1;
-	background: #ffffff;
-	color: #454545;
-	border: 1px solid #bfc5c5;
-	border-radius: 3px;
-	padding: 5px 1em;
-}
-
 #table_name {
 	width: 50px;
 }
@@ -112,25 +93,6 @@
 	background-color: #000000a6;
 	height: 73px;
 	width: auto;
-}
-
-body {
-	display: flex;
-	flex-flow: column;
-	margin: 0;
-	padding: 0;
-}
-
-main {
-	flex: 1;
-}
-
-footer {
-	background-color: #000000a6;
-	height: 131px;
-	width: 100%;
-	position: absolute;
-	bottom: 0;
 }
 
 ul.sidenav {
@@ -160,40 +122,9 @@ ul.sidenav li a:hover:not(.active) {
 	color: white;
 }
 
-div.content {
-	margin-left: 25%;
-	padding: 1px 16px;
-	height: auto;
-}
-
 .menu {
 	position: absolute;
 	left: 0;
-}
-
-.header-icon {
-	width: 200px;
-	background-color: #1b253880;
-	height: 100%;
-}
-
-.header-icon h1 {
-	margin: 0;
-	padding: 13px;
-	position: absolute;
-	left: 26px;
-	top: 5px;
-}
-
-img {
-	height: 208px;
-	width: 200px;
-}
-
-HTML CSS JSResult Skip Results Iframe
-EDIT ON
-* {
-	box-sizing: border-box;
 }
 
 body {
@@ -265,7 +196,7 @@ button {
 
 .ShiftRegister {
 	position: absolute;
-	top: 70%;
+	top: 87%;
 	left: 70%;
 	height: 100px;
 	width: 300px;
