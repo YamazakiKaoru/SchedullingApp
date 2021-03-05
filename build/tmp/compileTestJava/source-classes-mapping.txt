@@ -1,0 +1,2 @@
+com/example/Schedulle/SchedulleApplicationTests.java
+ com.example.Schedulle.SchedulleApplicationTests
