@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/job.css">
+</head>
+<body>
+
+	<div class="job-lst-main-cassette-wrap" th:each="item : ${zipcodeList}"
+		th:object="${item}">
+		<div class="job-lst-box-wrap" th:if=*{imgUrlPc}>
+
+			<a th:href="@{*{receptionUrl}}"
+				class="job-lst-main-box-inner job-lst-main-pr-box-inner"><div
+					class="job-lst-main-contents">
+					<p class="job-lst-cassette-pr-tag">PickUP</p>
+					<div class="job-lst-box-caption">
+						<div class="job-lst-main-img-wrap">
+							<div class="job-lst-main-img">
+								<img alt="" th:src="@{*{imgUrlPc}}">
+
+							</div>
+						</div>
+						<div class="job-lst-txt-wrap">
+							<ul class="job-lst-cassette-section-detail">
+							</ul>
+							<h3 class="job-lst-main-ttl-txt" th:text="*{cpName}"></h3>
+							<p class="job-lst-main-txt-lnk" th:text="*{title}"></p>
+						</div>
+						<div class="job-lst-main-btn-wrap">
+							<div class="btn-wrap">
+								<span class="grd-gray-new btn-gray-show-detail ico-show-detail">詳細を見る</span>
+							</div>
+						</div>
+					</div>
+					<table class="job-lst-main-box-tbl">
+						<tbody>
+							<tr class="job-main-tbl-inner">
+								<th class="job-main-tbl-detail"><span
+									class="ico-tbl-salary">給与</span></th>
+								<td><p>
+										<span class="txt-salary" th:text="*{getSalaryType}"></span><span
+											class="txt-salary b" th:text="*{salaryMin}"></span><span
+											class="txt-salary">～</span><span class="txt-salary b"
+											th:text="*{salaryMax}"></span><span class="txt-salary">円</span><span
+											th:text="*{salalyNote}"></span>
+									</p></td>
+							</tr>
+							<tr class="job-main-tbl-inner">
+								<th class="job-main-tbl-detail"><span
+									class="ico-tbl-traffic">交通</span></th>
+								<td><p th:text="*{accessRoute}"></p></td>
+							</tr>
+							<tr class="job-main-tbl-inner">
+								<th class="job-main-tbl-detail"><span
+									class="ico-tbl-workhour">勤務時間</span></th>
+								<td><p>
+										<span class="b" th:text="*{workingTimeNote}"><span
+											class="b">10-15時</span>/<span class="b">10-16時</span>/<span
+											class="b">13-18時</span>等 お好きな時間・曜日で働けますよ！★平日のみ・残業ゼロ♪ ★扶養内勤務ok
+									</p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div></a>
+			<div class="job-lst-main-entry">
+				<div class="job-lst-main-period">
+					<p class="job-lst-main-period-day">
+						掲載期間終了まであと<span>3</span>日
+					</p>
+					<p class="job-lst-main-period-limit">
+						<span th:text="*{getDateFormat}"></span>に掲載期間が終了
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

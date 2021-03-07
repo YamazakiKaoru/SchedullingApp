@@ -201,3 +201,13 @@ button {
 	height: 100px;
 	width: 300px;
 }
+
+.Profile {
+	width: 40%;
+	display: inline-block;
+	text-align: center;
+}
+
+.Account-content {
+	font-size : larger;
+}

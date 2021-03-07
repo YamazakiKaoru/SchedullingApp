@@ -20,6 +20,7 @@
 <div class="card card-info" style="margin :17%;">
               <div class="card-header" >
                 <h3 class="card-title">ShiftManager</h3>
+                <span class="ans" style="color:#001f3f">  ※　Email : a@icloud.com  Password : aaaa</span>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -55,15 +56,6 @@
               </form>
             </div>
 
-
-<tr th:each="user : ${userlist}">
-	<td th:text="*{user.name}">  </td>
-	<td th:text="*{user.mail}">  </td>
-	<td th:text="*{user.password}">  </td>
-	<br>
- </tr>
-
-<a href="/signIn">サインインページに移動</a>
 	<!-- Bootstrap 4 -->
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- AdminLTE App -->

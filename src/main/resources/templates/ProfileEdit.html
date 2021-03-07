@@ -13,7 +13,8 @@
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Tempusdominus Bootstrap 4 -->
-<link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<link rel="stylesheet"
+	href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/home.css">
@@ -104,13 +105,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">Starter Page</h1>
+							<h1 class="m-0">プロフィール編集</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Starter Page</li>
+								<li class="breadcrumb-item active">プロフィール編集</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -128,20 +129,24 @@
 						<h1>アカウント情報</h1>
 						<hr>
 					</div>
-					<div class="Account-number">社員番号</div>
-					<div class="Account-name">氏名</div>
-					<div class="Account-job">役職</div>
-					<div class="Account-profile">
-						プロフィール画像
-						<form th:action="@{/ProfilePictureEdit}" method="post"
-							enctype="multipart/form-data">
-							<input type="file" name="file"> <input type="submit"
-								value="送信する">
-						</form>
+					<div class="Account-content">
+						<div class="Account-number">
+							社員番号 <div th:text="${ownUser.id}" class="Profile"> </div>
+						</div>
+						<div class="Account-name">
+							氏名 <div th:text="${ownUser.name}" class="Profile"> </div>
+						</div>
+						<div class="Account-profile">
+						プロフィール画像<br>
+							<img th:src="@{${imageFile}}" class="Profile">
+							<form th:action="@{/ProfilePictureEdit}" method="post"
+								enctype="multipart/form-data">
+								<input type="file" name="file"> <input type="submit"
+									value="変更する">
+							</form>
+						</div>
+						<div class="Account-email" th:text="" class="Profile">Email</div>
 					</div>
-					<div class="Account-email">Email</div>
-					<div class="Account-password">パスワード</div>
-
 				</div>
 			</div>
 			<!-- /.content -->
