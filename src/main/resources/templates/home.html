@@ -71,16 +71,15 @@
 						<a href="#" class="d-block"><span th:text="${ownUser.name}"></span></a>
 					</div>
 				</div>
-
 				<!-- Sidebar Menu -->
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column"
 						data-widget="treeview" role="menu" data-accordion="false">
 						<li>
 							<div>
-								<a th:href="@{/ProfileEdit}">
-									<button type="button" class="btn btn-block btn-outline-primary btn-sm">プロフィール編集</button>
-								</a>
+								<form th:action="@{/ProfileEdit}" method="get">
+									<input type="submit" class="btn btn-block btn-outline-primary btn-sm" value="プロフィール編集">
+								</form>
 								<form class="form-signout" th:action="@{/logout}" method="post">
 									<button class="btn btn-block btn-outline-primary btn-sm" type="submit">Logout</button>
 								</form>
