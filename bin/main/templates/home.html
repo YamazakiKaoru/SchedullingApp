@@ -78,7 +78,7 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 						<li>
 							<div>
-								<a href="/ProfileEdit">
+								<a th:href="@{/ProfileEdit}">
 									<button type="button" class="btn btn-block btn-outline-primary btn-sm">プロフィール編集</button>
 								</a>
 								<form class="form-signout" th:action="@{/logout}" method="post">
