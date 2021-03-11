@@ -14,11 +14,11 @@ import com.example.Schedulle.auth.UserService;
 import lombok.Data;
 
 /**
- *　カレンダー用のサービス
+ *　シフト情報用のサービス
  */
 @Service
 @Data
-public class MonthBaseService {
+public class MonthMapService {
 
 	@Autowired
 	UserService userService;
@@ -29,9 +29,9 @@ public class MonthBaseService {
 	//現在月
 	private Integer currentMonth;
 	//一か月分の日程リスト
-	private List<MonthBase> schedulleList = new ArrayList<>();
+	private List<MonthMap> schedulleList = new ArrayList<>();
 
-	public MonthBaseService() {
+	public MonthMapService() {
 	}
 
 	/**
@@ -42,19 +42,21 @@ public class MonthBaseService {
 	 * @return ユーザーごとの月Map(List)
 	 */
 	@Transactional
-	public List<MonthBase> getMonthMap(int currentMonth) {
+	public List<MonthMap> getMonthMap(int currentMonth) {
 		this.currentMonth = currentMonth;
 		schedulleList.clear();
+
 		//ユーザー情報の取得
 		List<UserEntity> users = userService.findAllUser();
+
 		//指定された月でシフトテーブルを取得
 		List<SchedulleEntity> schedulles = schedulleService.findAllByMonthValue(currentMonth);
 
 		//ユーザー分listにテーブルを追加
 		users.forEach(user -> {
-		MonthBase usertmp = new MonthBase(currentMonth);
-		usertmp.setUserName(user.getName());
-		schedulleList.add(usertmp);
+		MonthMap month = new MonthMap(currentMonth);
+		month.setUserName(user.getName());
+		schedulleList.add(month);
 		});
 
 		//テーブルにスケジュールを追加

@@ -25,5 +25,10 @@ public class SchedulleService {
 		return list;
 	}
 
+	public List<SchedulleEntity> findAllByMonthValueAndDate(Integer month,Integer date){
+		List<SchedulleEntity> list = schedulleRepository.findByMonthValueAndDate(month, date);
+		return list;
+	}
+
 
 }
