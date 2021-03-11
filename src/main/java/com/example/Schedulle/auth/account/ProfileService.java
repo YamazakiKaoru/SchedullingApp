@@ -12,7 +12,7 @@ import com.example.Schedulle.auth.UserEntity;
 import com.example.Schedulle.auth.UserService;
 
 @Service
-public class ProfileEditService {
+public class ProfileService {
 
 	@Autowired
 	UserService userService;

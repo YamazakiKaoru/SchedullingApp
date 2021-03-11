@@ -24,7 +24,7 @@ public class ProfileEditController {
 	UserService userService;
 
 	@Autowired
-	ProfileEditService profileEditService;
+	ProfileService profileEditService;
 
 	@GetMapping("/ProfileEdit")
 	public String profileEdit(Model model, @AuthenticationPrincipal UserEntity ownUser) {

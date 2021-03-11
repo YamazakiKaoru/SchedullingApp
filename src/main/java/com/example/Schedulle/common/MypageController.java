@@ -12,11 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.Schedulle.auth.UserEntity;
 import com.example.Schedulle.auth.UserService;
-import com.example.Schedulle.auth.account.ProfileEditService;
-import com.example.Schedulle.common.schedulle.MonthBase;
-import com.example.Schedulle.common.schedulle.MonthBaseService;
+import com.example.Schedulle.auth.account.ProfileService;
+import com.example.Schedulle.common.schedulle.MonthMap;
+import com.example.Schedulle.common.schedulle.MonthMapService;
 import com.example.Schedulle.common.schedulle.SchedulleEntity;
-import com.example.Schedulle.common.schedulle.SchedulleService;
 
 /**
  *　ホームページの処理を行うコントローラー
@@ -25,16 +24,13 @@ import com.example.Schedulle.common.schedulle.SchedulleService;
 public class MypageController {
 
 	@Autowired
-	MonthBaseService MonthBaseService;
+	MonthMapService monthMapService;
 
 	@Autowired
 	UserService userSeivice;
 
 	@Autowired
-	SchedulleService schedulleService;
-
-	@Autowired
-	ProfileEditService profileEditService;
+	ProfileService profileService;
 
 	@GetMapping("/home")
 	public String home(Model model,@AuthenticationPrincipal UserEntity ownUser){
@@ -42,16 +38,12 @@ public class MypageController {
 		//ログイン情報の取得
 		model.addAttribute("ownUser", ownUser);
 
-		//カレンダー情報の取得(リダイレクト用)
-		List<MonthBase> userSchedulle = (List<MonthBase>) model.getAttribute("userSchedulle");
+		//シフト情報の取得(リダイレクト用)
+		List<MonthMap> userSchedulle = (List<MonthMap>) model.getAttribute("userSchedulle");
 
 		if(userSchedulle == null) {//初回リクエスト時
-			userSchedulle = MonthBaseService.getMonthMap(LocalDate.now().getMonthValue());
+			userSchedulle = monthMapService.getMonthMap(LocalDate.now().getMonthValue());
 		}
-
-		//カレンダー情報の取得
-		List<SchedulleEntity> schedulleList = schedulleService.findAllByMonthValue
-				(userSchedulle.get(0).getCurrentDate().getMonthValue());
 
 		model.addAttribute("userSchedulle", userSchedulle);
 		model.addAttribute("currentDate", userSchedulle.get(0).getCurrentDate());
@@ -64,7 +56,7 @@ public class MypageController {
 		model.addAttribute("shiftRegistForm", new SchedulleEntity());
 
 		//画像処理
-		String imagedata = profileEditService.getProfileData(ownUser);
+		String imagedata = profileService.getProfileData(ownUser);
 		model.addAttribute("imageFile", imagedata);
 
 		return "home";
@@ -75,7 +67,7 @@ public class MypageController {
 	 */
 	@GetMapping("/previous")
 	public String previous(RedirectAttributes redirectAttributes) {
-		List<MonthBase> userSchedulle = MonthBaseService.getMonthMap(MonthBaseService.getCurrentMonth()-1);
+		List<MonthMap> userSchedulle = monthMapService.getMonthMap(monthMapService.getCurrentMonth()-1);
 		redirectAttributes.addFlashAttribute("userSchedulle", userSchedulle);
 		return "redirect:/home";
 	}
@@ -85,9 +77,11 @@ public class MypageController {
 	 */
 	@GetMapping("/next")
 	public String next(RedirectAttributes redirectAttributes) {
-		List<MonthBase> userSchedulle = MonthBaseService.getMonthMap(MonthBaseService.getCurrentMonth()+1);
+		List<MonthMap> userSchedulle = monthMapService.getMonthMap(monthMapService.getCurrentMonth()+1);
 		redirectAttributes.addFlashAttribute("userSchedulle",userSchedulle);
 		return "redirect:/home";
 	}
+
+
 }
 

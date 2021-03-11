@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.Schedulle.auth.UserEntity;
-import com.example.Schedulle.auth.account.ProfileEditService;
+import com.example.Schedulle.auth.account.ProfileService;
 
 @Controller
 public class JobController {
@@ -16,7 +16,7 @@ public class JobController {
     JobService jobService;
 
     @Autowired
-    ProfileEditService profileEditService;
+    ProfileService profileEditService;
 
     @GetMapping("/job")
     public String index(Model model,@AuthenticationPrincipal UserEntity ownUser) {
