@@ -119,26 +119,41 @@
 	<section id="modalArea" class="modalArea">
 		<div id="modalBg" class="modalBg"></div>
 		<div class="modalWrapper">
-			<div class="modalContents">
+			<div class="modalContents card card-primary">
+							<div class="card-header">
+					<h3 class="card-title">Date picker</h3>
+				</div>
 
 				<form th:action="@{ShiftRegist}" method="post"
 					th:object="${shiftRegistForm}">
 
+					<div class="from-group">
+					<label>名前</label>
 					<select th:field="*{userId}">
 						<option th:each="user : ${users}" th:value="${user.id}">[[${user.name}]]</option>
-					</select> <select th:field="*{date}">
+					</select>
+					</div>
+					<div class="from-group">
+					<label>日にち</label>
+					 <select th:field="*{date}">
 						<option th:each="detail : ${userSchedulle[0].details}"
 							th:value="${detail.key}">[[${detail.key}]]</option>
-					</select> <input type="time" th:field="*{sDate}" step="3600"> <input
-						type="time" th:field="*{eDate}" step="3600"> <input
-						type="hidden" name="monthValue"
-						th:value="${currentDate.MonthValue}"> <input type="submit"
-						value="申請する">
+					</select>
+					</div>
+					<div class="from-group">
+					<label>時間</label>
+					 <input type="time" th:field="*{sDate}" step="3600">～
+					 <input type="time" th:field="*{eDate}" step="3600" style="left:50%">
+					 <input type="hidden" name="monthValue" th:value="${currentDate.MonthValue}">
+					 <input type="submit" id="from-submit" value="申請する">
+						</div>
 				</form>
 			</div>
-			<div id="closeModal" class="closeModal">×</div>
-		</div>
+			</div>
+
 	</section>
+
+
 
 
 	<!-- Bootstrap 4 -->
