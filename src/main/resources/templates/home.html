@@ -74,10 +74,11 @@
 								</tr>
 							</thead>
 							<thead id="calendar-body">
-								<tr th:each="user : ${userSchedulle}">
+								<tr th:each="user : ${userSchedulle}" >
 									<td th:text="${user.userName}"></td>
 									<td th:each="detail : ${user.details}">
 										<div class="" th:classappend="${detail.value.isHoliday()}">
+										<span th:text="${user.getHow(1)}"></span>
 											<span th:text="${detail.value.state}"></span>
 										</div>
 									</td>
@@ -142,7 +143,7 @@
 					</div>
 					<div class="from-group">
 					<label>時間</label>
-					 <input type="time" th:field="*{sDate}" step="3600">～
+					 <input type="time" th:field="*{sDate}" step="3600">
 					 <input type="time" th:field="*{eDate}" step="3600" style="left:50%">
 					 <input type="hidden" name="monthValue" th:value="${currentDate.MonthValue}">
 					 <input type="submit" id="from-submit" value="申請する">

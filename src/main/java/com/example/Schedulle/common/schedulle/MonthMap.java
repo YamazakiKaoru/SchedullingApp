@@ -50,6 +50,30 @@ public class MonthMap {
 		}
 	}
 
+	public int getHow(int data) {
+		int count = 0;
+		while(true) {
+			int i=1;
+		if(details.get(data+i).getState() != DateBase.HOLIDAY) {
+			i++;
+			count++;
+		}
+		else break;
+		}
+		while(true) {
+			int i=1;
+			if(details.get(data-i).getState() != DateBase.HOLIDAY) {
+				i++;
+				count++;
+			}
+			else break;
+		}
+
+		return count;
+	}
+
+
+
 	/**
 	 * 指定した日付の状態を設定する
 	 * @param day　指定する日程

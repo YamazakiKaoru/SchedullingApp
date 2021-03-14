@@ -28,7 +28,11 @@ public class SchedulleApplication {
 		UserEntity user3 = new UserEntity("アルバイト3","3333","3@icloud.com");
 		UserEntity user4 = new UserEntity("アルバイト4","4444","4@icloud.com");
 		UserEntity user5 = new UserEntity("アルバイト5","5555","5@icloud.com");
-		UserEntity user6 = new UserEntity("アルバイト6","6666","5@icloud.com");
+		UserEntity user6 = new UserEntity("アルバイト6","6666","6@icloud.com");
+		UserEntity user7 = new UserEntity("アルバイト7","7777","7@icloud.com");
+		UserEntity user8 = new UserEntity("アルバイト8","8888","8@icloud.com");
+		UserEntity user9 = new UserEntity("アルバイト9","9999","9@icloud.com");
+		UserEntity user10 = new UserEntity("アルバイト10","1010","10@icloud.com");
 
 		userService.saveUser(user);
 		userService.saveUser(user1);
@@ -37,6 +41,10 @@ public class SchedulleApplication {
 		userService.saveUser(user4);
 		userService.saveUser(user5);
 		userService.saveUser(user6);
+		userService.saveUser(user7);
+		userService.saveUser(user8);
+		userService.saveUser(user9);
+		userService.saveUser(user10);
 	}
 
 }

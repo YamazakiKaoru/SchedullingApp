@@ -13,9 +13,10 @@ public class DateBase {
 
 	public static List<String> YOUBI = List.of("日","月","火","水","木","金","土");
 
+	public static String HOLIDAY = "休";
+
 	private Date date;
 
-	private static String HOLIDAY = "休";
 
 	//曜日を表す
 	private String dayOfWeek;
