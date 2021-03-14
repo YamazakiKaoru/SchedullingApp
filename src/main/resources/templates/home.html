@@ -78,7 +78,6 @@
 									<td th:text="${user.userName}"></td>
 									<td th:each="detail : ${user.details}">
 										<div class="" th:classappend="${detail.value.isHoliday()}">
-										<span th:text="${user.getHow(1)}"></span>
 											<span th:text="${detail.value.state}"></span>
 										</div>
 									</td>
