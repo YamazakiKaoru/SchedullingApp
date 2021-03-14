@@ -1,4 +1,4 @@
-# シフト管理アプリによるCRUD操作(SpringBoot)
+# シフトタイム管理アプリによるCRUD操作(SpringBoot)
  シフト管理アプリ<br>
  ## 🌐 APP URL
  
@@ -14,8 +14,11 @@
  求人一覧の確認<br>
  
 # 技術
- 
-"hoge"のセールスポイントや差別化などを説明する
+ SpringBootを用いたシフトタイム管理できるアプリ<br>
+ SpringSecurityでログイン情報の管理<br>
+ Yahooディペロッパーネットワークの求人情報取得APIの実装<br>
+ 　- https://developer.yahoo.co.jp/webapi/job/v1/jobinfo.html
+ 　
  
 # Requirement
  Java 14.0.1<br>
@@ -28,8 +31,9 @@
  Pass : aaaa<br>
  
 # Note
- 
-注意点などがあれば書く
+まだ勉強中なので<br>
+細かいミスなどが多くあります<br>
+ご了承ください。
  
 # Author
  
