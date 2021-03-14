@@ -1,6 +1,7 @@
 # シフトタイム管理アプリによるCRUD操作(SpringBoot)
  シフト管理アプリ<br>
  ## 🌐 APP URL
+ https://schedullingapp.herokuapp.com/
  
   ###
  
