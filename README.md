@@ -15,14 +15,14 @@
  
 # 技術
  ### セッション情報
- 　SpringSecurityでログイン情報の管理
+ SpringSecurityでログイン情報の管理
  ### シフト管理
-   postgresqlに保存し表示<br>
-   SpringDataJPAでの実装
+ postgresqlに保存し表示<br>
+ SpringDataJPAでの実装
  ### 画像アップロード(localHostでのみ実装可)
-   localに画像を保存し、DBにそのパスを保存
+ localに画像を保存し、DBにそのパスを保存
  ### 求人情報
-   Yahooディペロッパーネットワークの求人情報取得APIの実装<br>
+ Yahooディペロッパーネットワークの求人情報取得APIの実装<br>
  　- https://developer.yahoo.co.jp/webapi/job/v1/jobinfo.html
  　
  
