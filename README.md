@@ -14,8 +14,12 @@
  ### ●求人一覧の確認<br>
  
 # 技術
- SpringBootを用いたシフトタイム管理できるアプリ<br>
- SpringSecurityでログイン情報の管理<br>
+ ### セッション情報
+ 　SpringSecurityでログイン情報の管理<br>
+ ### シフト管理
+ 　postgresqlに保存し表示<br>
+   SpringDataJPAでの実装
+ ### 求人情報
  Yahooディペロッパーネットワークの求人情報取得APIの実装<br>
  　- https://developer.yahoo.co.jp/webapi/job/v1/jobinfo.html
  　
